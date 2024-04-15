@@ -1,0 +1,32 @@
+
+
+int trig = 12;
+int echo = 13;
+
+void setup(){
+
+  pinMode(trig,OUTPUT);
+  pinMode(echo,INPUT);
+
+  digitalWrite(S0,HIGH);
+  digitalWrite(S1,LOW);
+
+  Serial.begin(9600);
+  
+void loop(){
+  float Length, distance;
+
+  digitalWrite(trig,LOW);
+  delay(2);
+  digitalWrite(trig,HIGH);
+  delay(10);
+  digitalWrite(trig,LOW);
+
+  Length = pulseIn(echo,HIGH);
+  distance = ((float)(340*Length)/10000)/2;
+  Serial.print(distance);
+  Serial.println(" Cm");
+
+  delay(1000);
+
+}
